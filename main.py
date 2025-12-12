@@ -30,7 +30,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     user_id = update.effective_user.id
 
-    if chat_id in captcha and user_id = captcha[chat_id]["user"]:
+    if chat_id in captcha and user_id == captcha[chat_id]["user"]:
         if text.strip() == captcha[chat_id]["answer"]:
             await update.message.reply_text("Verified! Enjoy the group.")
             del captcha[chat_id]
@@ -43,7 +43,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("WelcomeX bot ready. Add me to your group as admin to greet new members with rules and CAPTCHA.")
 
 app = Application.builder().token(BOT_TOKEN).build()
-app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome_new))  # FIXED: StatusUpdate (capital S)
+app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome_new))  # FIXED: StatusUpdate (proper case)
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
 app.add_handler(CommandHandler("start", start))
 
