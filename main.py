@@ -1,6 +1,7 @@
 import os
+from collections import defaultdict  # FIXED: Add this import
 
-from telegram import Update, ChatMember  # FIXED: ChatMember from telegram, not constants
+from telegram import Update, ChatMember
 from telegram.ext import Application, ContextTypes, CommandHandler, MessageHandler, filters
 from telegram.constants import ParseMode
 
