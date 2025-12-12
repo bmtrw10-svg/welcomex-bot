@@ -43,7 +43,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("WelcomeX bot ready. Add me to your group as admin to greet new members with rules and CAPTCHA.")
 
 app = Application.builder().token(BOT_TOKEN).build()
-app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome_new))  # FIXED: StatusUpdate (proper case)
+app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome_new))  # FIXED: StatusUpdate (correct case)
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
 app.add_handler(CommandHandler("start", start))
 
